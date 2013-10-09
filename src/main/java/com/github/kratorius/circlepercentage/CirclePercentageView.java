@@ -69,6 +69,33 @@ public class CirclePercentageView extends View {
         mTextPaint.setTextAlign(Paint.Align.CENTER);
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        // rescale [0-100] in [0-360]
+        final int degrees = (int) ((mValue / 100.) * 360);
+        final int width = getWidth() - getPaddingRight();
+        final int height = getHeight() - getPaddingBottom();
+        final String text = String.format("%d%%", mValue);
+
+        mPath.reset();
+
+        mDrawRect.top = getPaddingTop() + mThickness;
+        mDrawRect.left = getPaddingLeft() + mThickness;
+        mDrawRect.bottom = height - mThickness;
+        mDrawRect.right = width - mThickness;
+
+        mPath.addArc(mDrawRect, mStartAngle, degrees);
+        canvas.drawPath(mPath, mPaint);
+
+        int textX = getWidth() / 2;
+        int textY = (int) ((getHeight() / 2) - ((mTextPaint.descent() + mTextPaint.ascent()) / 2.));
+
+        canvas.drawText(text, textX, textY, mTextPaint);
+    }
+
+
     public void setValue(int value) {
         if (value < 0 || value > 100) {
             throw new IllegalArgumentException("Start value in the 0-100 range (both included)");
@@ -127,31 +154,5 @@ public class CirclePercentageView extends View {
 
     public int getStartAngle() {
         return mStartAngle;
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        // rescale [0-100] in [0-360]
-        final int degrees = (int) ((mValue / 100.) * 360);
-        final int width = getWidth() - getPaddingRight();
-        final int height = getHeight() - getPaddingBottom();
-        final String text = String.format("%d%%", mValue);
-
-        mPath.reset();
-
-        mDrawRect.top = getPaddingTop() + mThickness;
-        mDrawRect.left = getPaddingLeft() + mThickness;
-        mDrawRect.bottom = height - mThickness;
-        mDrawRect.right = width - mThickness;
-
-        mPath.addArc(mDrawRect, mStartAngle, degrees);
-        canvas.drawPath(mPath, mPaint);
-
-        int textX = getWidth() / 2;
-        int textY = (int) ((getHeight() / 2) - ((mTextPaint.descent() + mTextPaint.ascent()) / 2.));
-
-        canvas.drawText(text, textX, textY, mTextPaint);
     }
 }
