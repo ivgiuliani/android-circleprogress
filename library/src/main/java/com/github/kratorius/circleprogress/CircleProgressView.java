@@ -159,7 +159,7 @@ public class CircleProgressView extends View {
     public void setValue(int value) {
         if (value < 0 || value > 100) {
             throw new IllegalArgumentException(
-                    String.format("Start value was %d but must be in the 0-100 range", value)
+                    String.format("Value was %d but must be in the 0-100 range", value)
             );
         }
         mValue = value;
