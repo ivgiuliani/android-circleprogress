@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.kratorius.circlepercentage">
+    package="com.github.kratorius.circleprogress">
 
     <application
         android:allowBackup="true"

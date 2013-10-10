@@ -1,4 +1,4 @@
-package com.github.kratorius.circlepercentage;
+package com.github.kratorius.circleprogress;
 
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
 /**
- * Simple percentage bar shown inside a circle.
+ * Simple progress bar shown as a circle.
  */
-public class CirclePercentageView extends View {
+public class CircleProgressView extends View {
     private final static int DEFAULT_THICKNESS = 20;
     private final static int DEFAULT_VALUE = 0;
     private final static int DEFAULT_START_ANGLE = -90;
@@ -50,29 +50,29 @@ public class CirclePercentageView extends View {
     private int mStartAnimation;
     private int mStartAnimationDuration;
 
-    public CirclePercentageView(Context context) {
+    public CircleProgressView(Context context) {
         this(context, null, 0);
     }
 
-    public CirclePercentageView(Context context, AttributeSet attrs) {
+    public CircleProgressView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CirclePercentageView(Context context, AttributeSet attrs, int defStyle) {
+    public CircleProgressView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CirclePercentageView);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressView);
         try {
             assert a != null;
-            mThickness = a.getDimensionPixelSize(R.styleable.CirclePercentageView_thickness, DEFAULT_THICKNESS);
-            mColor = a.getColor(R.styleable.CirclePercentageView_color, DEFAULT_COLOR);
-            mTextColor = a.getColor(R.styleable.CirclePercentageView_textColor, mColor);
-            mValue = a.getInteger(R.styleable.CirclePercentageView_value, DEFAULT_VALUE);
-            mStartAngle = a.getInteger(R.styleable.CirclePercentageView_startAngle, DEFAULT_START_ANGLE);
-            mTextSize = a.getDimensionPixelSize(R.styleable.CirclePercentageView_textSize, DEFAULT_TEXT_SIZE);
-            mText = a.getString(R.styleable.CirclePercentageView_text);
-            mStartAnimation = a.getInteger(R.styleable.CirclePercentageView_startAnimation, ANIM_NONE);
-            mStartAnimationDuration = a.getInteger(R.styleable.CirclePercentageView_startAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
+            mThickness = a.getDimensionPixelSize(R.styleable.CircleProgressView_thickness, DEFAULT_THICKNESS);
+            mColor = a.getColor(R.styleable.CircleProgressView_color, DEFAULT_COLOR);
+            mTextColor = a.getColor(R.styleable.CircleProgressView_textColor, mColor);
+            mValue = a.getInteger(R.styleable.CircleProgressView_value, DEFAULT_VALUE);
+            mStartAngle = a.getInteger(R.styleable.CircleProgressView_startAngle, DEFAULT_START_ANGLE);
+            mTextSize = a.getDimensionPixelSize(R.styleable.CircleProgressView_textSize, DEFAULT_TEXT_SIZE);
+            mText = a.getString(R.styleable.CircleProgressView_text);
+            mStartAnimation = a.getInteger(R.styleable.CircleProgressView_startAnimation, ANIM_NONE);
+            mStartAnimationDuration = a.getInteger(R.styleable.CircleProgressView_startAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
         } finally {
             a.recycle();
         }
