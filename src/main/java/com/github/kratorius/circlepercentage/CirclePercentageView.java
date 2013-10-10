@@ -98,7 +98,9 @@ public class CirclePercentageView extends View {
 
     public void setValue(int value) {
         if (value < 0 || value > 100) {
-            throw new IllegalArgumentException("Start value in the 0-100 range (both included)");
+            throw new IllegalArgumentException(
+                    String.format("Start value was %d but must be in the 0-100 range (both included)", value)
+            );
         }
         mValue = value;
         invalidate();
