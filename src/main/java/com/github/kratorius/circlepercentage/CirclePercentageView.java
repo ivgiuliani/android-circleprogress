@@ -106,54 +106,104 @@ public class CirclePercentageView extends View {
         invalidate();
     }
 
+    /**
+     * Returns the current value of the progress circle.
+     * @return current progress circle's value
+     */
     public int getValue() {
         return mValue;
     }
 
+    /**
+     * Sets the thickness of the of the circle progress bar.
+     * @param thickness thickness of the of the circle progress bar
+     */
     public void setThickness(int thickness) {
         mThickness = thickness;
         mPaint.setStrokeWidth(thickness);
         invalidate();
     }
 
+    /**
+     * Returns the current thickness of the circle progress bar.
+     * @return thickness of the circle progress bar
+     */
     public int getThickness() {
         return mThickness;
     }
 
+    /**
+     * Sets the color of the circle progress bar.
+     * @param color color of the circle progress bar.
+     */
     public void setColor(int color) {
         mColor = color;
         mPaint.setColor(mColor);
         invalidate();
     }
 
+    /**
+     * Returns the current color of the circle progress bar.
+     * @return color of the circle progress bar
+     */
     public int getColor() {
         return mColor;
     }
 
+    /**
+     * Sets the color of the text inside circle progress bar.
+     * @param color text color
+     */
     public void setTextColor(int color) {
         mTextColor = color;
         mTextPaint.setColor(mTextColor);
         invalidate();
     }
 
+    /**
+     * Returns the color of the text inside the circle progress bar.
+     * @return color of the circle progress bar
+     */
     public int getTextColor() {
         return mTextColor;
     }
 
+    /**
+     * Sets the size of the text inside the circle progress bar.
+     * @param size text size
+     */
     public void setTextSize(int size) {
         mTextSize = size;
         mTextPaint.setTextSize(size);
         invalidate();
     }
 
+    /**
+     * Returns the size of the text inside the circle progress bar.
+     * @return text size
+     */
     public int getTextSize() {
         return mTextSize;
     }
 
+    /**
+     * Sets the start angle of the progress circle. This corresponds to the point
+     * in the circle where the drawing starts.<br />
+     * The angle {@code 0} corresponds to the rightmost point on the circle (if you
+     * take a clock as reference, it'd be the 15 mins point).<br />
+     * If the start angle is negative or >= 360, the start angle is treated as start
+     * angle modulo 360.
+     * @param angle angle in degrees
+     */
     public void setStartAngle(int angle) {
         mStartAngle = angle;
+        invalidate();
     }
 
+    /**
+     * Returns the current start angle.
+     * @return start angle
+     */
     public int getStartAngle() {
         return mStartAngle;
     }
