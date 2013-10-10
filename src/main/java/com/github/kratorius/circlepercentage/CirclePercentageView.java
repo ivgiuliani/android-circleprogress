@@ -43,6 +43,7 @@ public class CirclePercentageView extends View {
     private int mValue;
     private int mStartAngle;
 
+    private String mText;
     private int mTextColor;
     private int mTextSize;
 
@@ -69,6 +70,7 @@ public class CirclePercentageView extends View {
             mValue = a.getInteger(R.styleable.CirclePercentageView_value, DEFAULT_VALUE);
             mStartAngle = a.getInteger(R.styleable.CirclePercentageView_startAngle, DEFAULT_START_ANGLE);
             mTextSize = a.getDimensionPixelSize(R.styleable.CirclePercentageView_textSize, DEFAULT_TEXT_SIZE);
+            mText = a.getString(R.styleable.CirclePercentageView_text);
             mStartAnimation = a.getInteger(R.styleable.CirclePercentageView_startAnimation, ANIM_NONE);
             mStartAnimationDuration = a.getInteger(R.styleable.CirclePercentageView_startAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
         } finally {
@@ -94,7 +96,7 @@ public class CirclePercentageView extends View {
         final int degrees = (int) ((mValue / 100.) * 360);
         final int width = getWidth() - getPaddingRight();
         final int height = getHeight() - getPaddingBottom();
-        final String text = String.format("%d%%", mValue);
+        final String text = getText();
 
         mPath.reset();
 
@@ -206,6 +208,29 @@ public class CirclePercentageView extends View {
      */
     public int getColor() {
         return mColor;
+    }
+
+    /**
+     * Sets the text inside the circle progress bar.<br/>
+     * If the text is {@code null}, the view will show the current value
+     * inside the circle.
+     * @param text input text or null to show the current value
+     */
+    public void setText(String text) {
+        mText = text;
+        invalidate();
+    }
+
+    /**
+     * Returns the current text inside the circle progress bar.
+     * @return text inside the circle progress bar or null if there's no
+     *         text set
+     */
+    public String getText() {
+        if (mText == null) {
+            return Integer.toString(mValue);
+        }
+        return mText;
     }
 
     /**

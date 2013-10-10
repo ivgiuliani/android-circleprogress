@@ -5,6 +5,7 @@
         <attr name="color" format="color" />
         <attr name="value" format="integer" />
         <attr name="startAngle" format="integer" />
+        <attr name="text" format="string" />
         <attr name="textColor" format="color" />
         <attr name="textSize" format="dimension" />
         <attr name="startAnimation" format="enum">
