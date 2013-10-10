@@ -1,12 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true">
 
-    <com.github.kratorius.circleprogress.CircleProgressView
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Standard circle" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:id="@+id/crc_standard"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            circle:value="75" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thick circle" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:id="@+id/crc_large_thickness"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            circle:thickness="30dp"
+            circle:color="#ffff8800"
+            circle:value="75" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On start animation (fade in)" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.github.kratorius.circleprogress.CircleProgressView
+                android:id="@+id/crc_animated_fadeIn"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                circle:thickness="20dp"
+                circle:color="#ffff8800"
+                circle:textColor="#405050"
+                circle:startAnimation="fadeIn"
+                circle:startAnimationDuration="5000"
+                circle:value="75" />
+
+            <Button
+                android:id="@+id/btn_reload_fade_in"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Reload activity"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On start animation (roll)" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.github.kratorius.circleprogress.CircleProgressView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                circle:thickness="20dp"
+                circle:color="#ffff8800"
+                circle:textColor="#405050"
+                circle:startAnimation="roll"
+                circle:startAnimationDuration="5000"
+                circle:value="75" />
+
+            <Button
+                android:id="@+id/btn_reload_roll"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Reload activity"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="On start animation (incremental)" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.github.kratorius.circleprogress.CircleProgressView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                circle:thickness="20dp"
+                circle:color="#ffff8800"
+                circle:textColor="#405050"
+                circle:startAnimation="incremental"
+                circle:startAnimationDuration="5000"
+                circle:value="75" />
+
+            <Button
+                android:id="@+id/btn_reload_incremental"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Reload activity"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ovalized" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:layout_width="150dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            circle:color="#ffff8800"
+            circle:textColor="#405050"
+            circle:value="75" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Different start angle" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            circle:startAngle="25"
+            circle:color="#ffff8800"
+            circle:textColor="#405050"
+            circle:value="75" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Custom background" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle_bg"
+            circle:color="#ffffeeee"
+            circle:textColor="#ffffffff"
+            circle:thickness="2dp"
+            circle:value="75" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Background circle" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle2_bg"
+            circle:color="#ffffc915"
+            circle:textColor="#ff000000"
+            circle:thickness="5dp"
+            circle:value="75" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Background circle 2" />
+        <com.github.kratorius.circleprogress.CircleProgressView
+            android:id="@+id/crc_bg2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:background="@drawable/circle3_bg"
+            circle:color="#ffffc915"
+            circle:textColor="#ff000000"
+            circle:thickness="6dp"
+            circle:value="75" />
+    </LinearLayout>
+</ScrollView>
