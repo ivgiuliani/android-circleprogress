@@ -1,1 +1,6 @@
 /build
+local.properties
+
+bin/
+gen/
+out/

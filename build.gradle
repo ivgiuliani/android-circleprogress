@@ -2,27 +2,21 @@ buildscript {
     repositories {
         mavenCentral()
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:0.5.+'
     }
 }
-apply plugin: 'android-library'
 
-repositories {
-    mavenCentral()
-}
+allprojects {
+    version = VERSION_NAME
+    group = GROUP
 
-android {
-    compileSdkVersion 18
-    buildToolsVersion "18.1.0"
-
-    defaultConfig {
-        minSdkVersion 10
-        targetSdkVersion 18
-        versionCode 1
-        versionName "1.0"
+    repositories {
+        mavenCentral()
     }
-}
 
-dependencies {
+    tasks.withType(Compile) {
+        options.encoding = "UTF-8"
+    }
 }
