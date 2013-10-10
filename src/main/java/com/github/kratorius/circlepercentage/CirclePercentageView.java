@@ -1,5 +1,7 @@
 package com.github.kratorius.circlepercentage;
 
+import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -7,8 +9,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 /**
  * Simple percentage bar shown inside a circle.
@@ -19,6 +23,14 @@ public class CirclePercentageView extends View {
     private final static int DEFAULT_START_ANGLE = -90;
     private final static int DEFAULT_COLOR = Color.DKGRAY;
     private final static int DEFAULT_TEXT_SIZE = 45;
+    private final static int DEFAULT_START_ANIMATION_DURATION = 500;
+
+    // keep in sync with values in attrs.xml
+    private final static int ANIM_NONE = 0;
+    private final static int ANIM_ROLL = 1;
+    private final static int ANIM_FADE_IN = 2;
+    private final static int ANIM_INCREMENTAL = 3;
+    private final static int ANIM_THICKNESS_EXPAND = 4;
 
     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -33,6 +45,9 @@ public class CirclePercentageView extends View {
 
     private int mTextColor;
     private int mTextSize;
+
+    private int mStartAnimation;
+    private int mStartAnimationDuration;
 
     public CirclePercentageView(Context context) {
         this(context, null, 0);
@@ -54,6 +69,8 @@ public class CirclePercentageView extends View {
             mValue = a.getInteger(R.styleable.CirclePercentageView_value, DEFAULT_VALUE);
             mStartAngle = a.getInteger(R.styleable.CirclePercentageView_startAngle, DEFAULT_START_ANGLE);
             mTextSize = a.getDimensionPixelSize(R.styleable.CirclePercentageView_textSize, DEFAULT_TEXT_SIZE);
+            mStartAnimation = a.getInteger(R.styleable.CirclePercentageView_startAnimation, ANIM_NONE);
+            mStartAnimationDuration = a.getInteger(R.styleable.CirclePercentageView_startAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
         } finally {
             a.recycle();
         }
@@ -95,11 +112,52 @@ public class CirclePercentageView extends View {
         canvas.drawText(text, textX, textY, mTextPaint);
     }
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        // currently animations are ignored on devices that don't support
+        // them natively
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+            return;
+        }
 
+        ObjectAnimator animator;
+        switch (mStartAnimation) {
+            case ANIM_ROLL:
+                animator = ObjectAnimator.ofInt(this, "startAngle", mStartAngle - 180, mStartAngle);
+                animator.setInterpolator(new DecelerateInterpolator());
+                break;
+            case ANIM_FADE_IN:
+                animator = ObjectAnimator.ofFloat(this, "alpha", 0, 1);
+                break;
+            case ANIM_INCREMENTAL:
+                animator = ObjectAnimator.ofInt(this, "value", 0, mValue);
+                animator.setInterpolator(new DecelerateInterpolator());
+                break;
+            case ANIM_THICKNESS_EXPAND:
+                animator = ObjectAnimator.ofInt(this, "thickness", 0, mThickness);
+                animator.setInterpolator(new DecelerateInterpolator());
+                break;
+            default:
+                animator = null;
+        }
+
+        if (animator != null) {
+            animator.setDuration(mStartAnimationDuration);
+            animator.start();
+        }
+    }
+
+    /**
+     * Sets the value of the progress circle.
+     * @param value value in percentage of the progress bar. This must be
+     *              in the 0-100 range (both included).
+     */
     public void setValue(int value) {
         if (value < 0 || value > 100) {
             throw new IllegalArgumentException(
-                    String.format("Start value was %d but must be in the 0-100 range (both included)", value)
+                    String.format("Start value was %d but must be in the 0-100 range", value)
             );
         }
         mValue = value;

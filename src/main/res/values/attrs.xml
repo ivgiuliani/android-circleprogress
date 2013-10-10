@@ -7,5 +7,13 @@
         <attr name="startAngle" format="integer" />
         <attr name="textColor" format="color" />
         <attr name="textSize" format="dimension" />
+        <attr name="startAnimation" format="enum">
+            <enum name="none" value="0" />
+            <enum name="roll" value="1" />
+            <enum name="fadeIn" value="2" />
+            <enum name="incremental" value="3" />
+            <enum name="thicknessExpand" value="4" />
+        </attr>
+        <attr name="startAnimationDuration" format="integer" />
     </declare-styleable>
 </resources>
