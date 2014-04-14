@@ -179,6 +179,11 @@ public class CircleProgressView extends View {
      * @param thickness thickness of the of the circle progress bar
      */
     public void setThickness(int thickness) {
+        if (thickness < 0) {
+            throw new IllegalArgumentException(
+                    String.format("Thickness was %d but must be positive", value)
+            );
+        }
         mThickness = thickness;
         mPaint.setStrokeWidth(thickness);
         invalidate();
