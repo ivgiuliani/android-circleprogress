@@ -36,3 +36,5 @@ For more examples, check the [demo project](https://github.com/kratorius/android
 * `textColor`: above text's color
 * `textSize`: above text's size
 * `startAnimation`: one of `none`, `roll`, `fadeIn`, `incremental`, `thicknessExpand`.
+
+[![Analytics](https://ga-beacon.appspot.com/UA-184881-14/android-circleprogress)](https://github.com/igrigorik/ga-beacon)
