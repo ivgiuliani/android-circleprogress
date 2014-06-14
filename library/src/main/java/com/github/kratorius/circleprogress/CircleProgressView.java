@@ -181,7 +181,7 @@ public class CircleProgressView extends View {
     public void setThickness(int thickness) {
         if (thickness < 0) {
             throw new IllegalArgumentException(
-                    String.format("Thickness was %d but must be positive", value)
+                    String.format("Thickness was %d but must be positive", thickness)
             );
         }
         mThickness = thickness;
