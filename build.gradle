@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
@@ -13,6 +13,6 @@ allprojects {
     group = GROUP
 
     repositories {
-        mavenCentral()
+        jcenter()
     }
 }
