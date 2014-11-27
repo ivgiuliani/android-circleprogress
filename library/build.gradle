@@ -3,10 +3,10 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:0.13.2'
     }
 }
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 repositories {
     jcenter()
@@ -18,7 +18,7 @@ android {
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 19
+        targetSdkVersion 21
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
     }
