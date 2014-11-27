@@ -27,7 +27,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:value="75" />
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_inc_standard"
@@ -58,10 +58,9 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:thickness="30dp"
-                circle:color="#ffff8800"
-                circle:value="75" />
-
+                circle:circleProgressThickness="30dp"
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressValue="75" />
             <Button
                 android:id="@+id/btn_inc_large_thickness"
                 android:layout_width="wrap_content"
@@ -91,12 +90,12 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:thickness="20dp"
-                circle:color="#ffff8800"
-                circle:textColor="#405050"
-                circle:startAnimation="fadeIn"
-                circle:startAnimationDuration="5000"
-                circle:value="75" />
+                circle:circleProgressThickness="20dp"
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressTextColor="#405050"
+                circle:circleProgressStartAnimation="fadeIn"
+                circle:circleProgressStartAnimationDuration="5000"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_reload_fade_in"
@@ -134,12 +133,12 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:thickness="20dp"
-                circle:color="#ffff8800"
-                circle:textColor="#405050"
-                circle:startAnimation="roll"
-                circle:startAnimationDuration="5000"
-                circle:value="75" />
+                circle:circleProgressThickness="20dp"
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressTextColor="#405050"
+                circle:circleProgressStartAnimation="roll"
+                circle:circleProgressStartAnimationDuration="5000"
+                circle:circleProgressSalue="75" />
 
             <Button
                 android:id="@+id/btn_reload_roll"
@@ -177,12 +176,12 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:thickness="20dp"
-                circle:color="#ffff8800"
-                circle:textColor="#405050"
-                circle:startAnimation="incremental"
-                circle:startAnimationDuration="5000"
-                circle:value="75" />
+                circle:circleProgressThickness="20dp"
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressTextColor="#405050"
+                circle:circleProgressStartAnimation="incremental"
+                circle:circleProgressStartAnimationDuration="5000"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_reload_incremental"
@@ -220,9 +219,9 @@
                 android:layout_width="150dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                circle:color="#ffff8800"
-                circle:textColor="#405050"
-                circle:value="75" />
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressTextColor="#405050"
+                circle:circleProgressValue="75" />
             <Button
                 android:id="@+id/btn_inc_ovalized"
                 android:layout_width="wrap_content"
@@ -252,10 +251,10 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                circle:startAngle="25"
-                circle:color="#ffff8800"
-                circle:textColor="#405050"
-                circle:value="75" />
+                circle:circleProgressStartAngle="25"
+                circle:circleProgressColor="#ffff8800"
+                circle:circleProgressTextColor="#405050"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_inc_diff_start_angle"
@@ -287,10 +286,10 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/circle_bg"
-                circle:color="#ffffeeee"
-                circle:textColor="#ffffffff"
-                circle:thickness="2dp"
-                circle:value="75" />
+                circle:circleProgressColor="#ffffeeee"
+                circle:circleProgressTextColor="#ffffffff"
+                circle:circleProgressThickness="2dp"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_inc_bg1"
@@ -322,10 +321,10 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/circle2_bg"
-                circle:color="#ffffc915"
-                circle:textColor="#ff000000"
-                circle:thickness="5dp"
-                circle:value="75" />
+                circle:circleProgressColor="#ffffc915"
+                circle:circleProgressTextColor="#ff000000"
+                circle:circleProgressThickness="5dp"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_inc_bg2"
@@ -358,10 +357,10 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:background="@drawable/circle3_bg"
-                circle:color="#ffffc915"
-                circle:textColor="#ff000000"
-                circle:thickness="6dp"
-                circle:value="75" />
+                circle:circleProgressColor="#ffffc915"
+                circle:circleProgressTextColor="#ff000000"
+                circle:circleProgressThickness="6dp"
+                circle:circleProgressValue="75" />
 
             <Button
                 android:id="@+id/btn_inc_bg3"

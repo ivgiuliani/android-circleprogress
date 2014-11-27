@@ -20,7 +20,7 @@ Just add the library to your project and add a view like this:
     android:layout_width="150dp"
     android:layout_height="150dp"
     android:layout_gravity="center"
-    circle:value="75" />
+    circleProgress:circleProgressValue="75" />
 ```
 
 For more examples, check the [demo project](https://github.com/kratorius/android-circleprogress/tree/master/demo).
@@ -28,13 +28,13 @@ For more examples, check the [demo project](https://github.com/kratorius/android
 
 ## Available view properties
 
-* `thickness`: controls the thickness of the circle
-* `color`: the color of the circle
-* `value`: the "progress" (in the 0-100 range)
-* `startAngle`: starting angle
-* `text`: optional text inside the circle
-* `textColor`: above text's color
-* `textSize`: above text's size
-* `startAnimation`: one of `none`, `roll`, `fadeIn`, `incremental`, `thicknessExpand`.
+* `circleProgressThickness`: controls the thickness of the circle
+* `circleProgressColor`: the color of the circle
+* `circleProgressValue`: the "progress" (in the 0-100 range)
+* `circleProgressStartAngle`: starting angle
+* `circleProgressText`: optional text inside the circle
+* `circleProgressTextColor`: above text's color
+* `circleProgressTextSize`: above text's size
+* `circleProgressStartAnimation`: one of `none`, `roll`, `fadeIn`, `incremental`, `thicknessExpand`.
 
 [![Analytics](https://ga-beacon.appspot.com/UA-184881-14/android-circleprogress)](https://github.com/igrigorik/ga-beacon)
