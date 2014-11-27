@@ -64,15 +64,15 @@ public class CircleProgressView extends View {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressView);
         try {
             assert a != null;
-            mThickness = a.getDimensionPixelSize(R.styleable.CircleProgressView_thickness, DEFAULT_THICKNESS);
-            mColor = a.getColor(R.styleable.CircleProgressView_color, DEFAULT_COLOR);
-            mTextColor = a.getColor(R.styleable.CircleProgressView_textColor, mColor);
-            mValue = a.getInteger(R.styleable.CircleProgressView_value, DEFAULT_VALUE);
-            mStartAngle = a.getInteger(R.styleable.CircleProgressView_startAngle, DEFAULT_START_ANGLE);
-            mTextSize = a.getDimensionPixelSize(R.styleable.CircleProgressView_textSize, DEFAULT_TEXT_SIZE);
-            mText = a.getString(R.styleable.CircleProgressView_text);
-            mStartAnimation = a.getInteger(R.styleable.CircleProgressView_startAnimation, ANIM_NONE);
-            mStartAnimationDuration = a.getInteger(R.styleable.CircleProgressView_startAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
+            mThickness = a.getDimensionPixelSize(R.styleable.CircleProgressView_circleProgressThickness, DEFAULT_THICKNESS);
+            mColor = a.getColor(R.styleable.CircleProgressView_circleProgressColor, DEFAULT_COLOR);
+            mTextColor = a.getColor(R.styleable.CircleProgressView_circleProgressTextColor, mColor);
+            mValue = a.getInteger(R.styleable.CircleProgressView_circleProgressValue, DEFAULT_VALUE);
+            mStartAngle = a.getInteger(R.styleable.CircleProgressView_circleProgressStartAngle, DEFAULT_START_ANGLE);
+            mTextSize = a.getDimensionPixelSize(R.styleable.CircleProgressView_circleProgressTextSize, DEFAULT_TEXT_SIZE);
+            mText = a.getString(R.styleable.CircleProgressView_circleProgressText);
+            mStartAnimation = a.getInteger(R.styleable.CircleProgressView_circleProgressStartAnimation, ANIM_NONE);
+            mStartAnimationDuration = a.getInteger(R.styleable.CircleProgressView_circleProgressStartAnimationDuration, DEFAULT_START_ANIMATION_DURATION);
         } finally {
             a.recycle();
         }

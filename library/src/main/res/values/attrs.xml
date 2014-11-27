@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="CircleProgressView">
-        <attr name="thickness" format="dimension" />
-        <attr name="color" format="color" />
-        <attr name="value" format="integer" />
-        <attr name="startAngle" format="integer" />
-        <attr name="text" format="string" />
-        <attr name="textColor" format="color" />
-        <attr name="textSize" format="dimension" />
-        <attr name="startAnimation" format="enum">
+        <attr name="circleProgressThickness" format="dimension" />
+        <attr name="circleProgressColor" format="color" />
+        <attr name="circleProgressValue" format="integer" />
+        <attr name="circleProgressStartAngle" format="integer" />
+        <attr name="circleProgressText" format="string" />
+        <attr name="circleProgressTextColor" format="color" />
+        <attr name="circleProgressTextSize" format="dimension" />
+        <attr name="circleProgressStartAnimation" format="enum">
             <enum name="none" value="0" />
             <enum name="roll" value="1" />
             <enum name="fadeIn" value="2" />
             <enum name="incremental" value="3" />
             <enum name="thicknessExpand" value="4" />
         </attr>
-        <attr name="startAnimationDuration" format="integer" />
+        <attr name="circleProgressStartAnimationDuration" format="integer" />
     </declare-styleable>
 </resources>
