@@ -16,6 +16,7 @@ Just add the library to your project and add a view like this:
 
 ``` xml
 <com.github.kratorius.circleprogress.CircleProgressView
+    xmlns:circleProgress="http://schemas.android.com/apk/res-auto"
     android:id="@+id/crc_standard"
     android:layout_width="150dp"
     android:layout_height="150dp"
